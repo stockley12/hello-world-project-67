@@ -97,7 +97,7 @@ const Login = () => {
       {/* Main Content */}
       <main className="flex-1 relative">
         {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#4A9BD9] via-[#5BA3DC] to-[#6BADE0]" />
+        <div className="absolute inset-0 bg-[#7DBDCF]" />
         
         <div className="relative max-w-7xl mx-auto px-4 lg:px-8 py-8 lg:py-16">
           <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-16">
