@@ -27,11 +27,11 @@ const Login = () => {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="flex items-center">
-              <span className="text-2xl font-bold">
-                <span className="text-[#C41230]">M</span>
-                <span className="text-[#C41230]">/</span>
-              </span>
-              <span className="ml-1 text-xl font-semibold text-gray-800">Made-in-China</span>
+              <svg className="h-8 w-8 mr-1" viewBox="0 0 40 40">
+                <path fill="#C41230" d="M5 5 L20 35 L35 5 L25 5 L20 20 L15 5 Z"/>
+                <path fill="#C41230" d="M18 5 L22 5 L22 15 L18 15 Z"/>
+              </svg>
+              <span className="text-xl font-semibold text-gray-800">Made-in-China</span>
             </div>
             <span className="hidden sm:block text-xs text-gray-500 ml-2">Connecting Buyers with Chinese Suppliers</span>
           </div>
