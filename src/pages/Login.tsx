@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Eye, EyeOff, QrCode, ChevronDown } from "lucide-react";
+import madeInChinaLogo from "@/assets/made-in-china-logo.png";
 
 const languages = [
   { code: "zh", label: "简体中文" },
@@ -47,16 +48,13 @@ const Login = () => {
       {/* Header */}
       <header className="bg-white border-b border-gray-200 px-4 lg:px-8 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center">
             <a href="/" className="flex items-center">
-              <svg className="h-10 w-12" viewBox="0 0 60 40">
-                <path fill="#C41230" d="M8 8 L30 32 L52 8 L42 8 L30 22 L18 8 Z"/>
-                <path fill="#C41230" d="M26 4 L34 4 L34 16 L26 16 Z"/>
-              </svg>
-              <div className="ml-1">
-                <span className="text-xl font-bold text-gray-800">Made-in-China</span>
-                <p className="text-[10px] text-gray-500 hidden sm:block">Connecting Buyers with Chinese Suppliers</p>
-              </div>
+              <img 
+                src={madeInChinaLogo} 
+                alt="Made-in-China" 
+                className="h-10 w-auto"
+              />
             </a>
           </div>
           
