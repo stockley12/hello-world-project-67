@@ -4,12 +4,34 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Eye, EyeOff, QrCode, ChevronDown } from "lucide-react";
 
+const languages = [
+  { code: "zh", label: "简体中文" },
+  { code: "en", label: "English" },
+  { code: "es", label: "Español" },
+  { code: "pt", label: "Português" },
+  { code: "fr", label: "Français" },
+  { code: "ru", label: "Русский язык" },
+  { code: "it", label: "Italiano" },
+  { code: "de", label: "Deutsch" },
+  { code: "nl", label: "Nederlands" },
+  { code: "sa", label: "العربية" },
+  { code: "kr", label: "한국어" },
+  { code: "jp", label: "日本語" },
+  { code: "hi", label: "हिन्दी" },
+  { code: "th", label: "ภาษาไทย" },
+  { code: "tr", label: "Türkçe" },
+  { code: "vi", label: "Tiếng Việt" },
+  { code: "id", label: "Bahasa Indonesia" },
+];
+
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showLangDropdown, setShowLangDropdown] = useState(false);
+  const [currentLang, setCurrentLang] = useState("English");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,19 +48,51 @@ const Login = () => {
       <header className="bg-white border-b border-gray-200 px-4 lg:px-8 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="flex items-center">
-              <svg className="h-8 w-8 mr-1" viewBox="0 0 40 40">
-                <path fill="#C41230" d="M5 5 L20 35 L35 5 L25 5 L20 20 L15 5 Z"/>
-                <path fill="#C41230" d="M18 5 L22 5 L22 15 L18 15 Z"/>
+            <a href="/" className="flex items-center">
+              <svg className="h-10 w-12" viewBox="0 0 60 40">
+                <path fill="#C41230" d="M8 8 L30 32 L52 8 L42 8 L30 22 L18 8 Z"/>
+                <path fill="#C41230" d="M26 4 L34 4 L34 16 L26 16 Z"/>
               </svg>
-              <span className="text-xl font-semibold text-gray-800">Made-in-China</span>
-            </div>
-            <span className="hidden sm:block text-xs text-gray-500 ml-2">Connecting Buyers with Chinese Suppliers</span>
+              <div className="ml-1">
+                <span className="text-xl font-bold text-gray-800">Made-in-China</span>
+                <p className="text-[10px] text-gray-500 hidden sm:block">Connecting Buyers with Chinese Suppliers</p>
+              </div>
+            </a>
           </div>
-          <button className="flex items-center gap-1 text-sm text-gray-700 hover:text-gray-900">
-            English
-            <ChevronDown className="w-4 h-4" />
-          </button>
+          
+          {/* Language Dropdown */}
+          <div className="relative">
+            <button 
+              onClick={() => setShowLangDropdown(!showLangDropdown)}
+              className="flex items-center gap-1 text-sm text-gray-700 hover:text-gray-900 px-3 py-2"
+            >
+              {currentLang}
+              <ChevronDown className={`w-4 h-4 transition-transform ${showLangDropdown ? 'rotate-180' : ''}`} />
+            </button>
+            
+            {showLangDropdown && (
+              <>
+                <div 
+                  className="fixed inset-0 z-40" 
+                  onClick={() => setShowLangDropdown(false)}
+                />
+                <div className="absolute right-0 top-full mt-1 z-50 bg-white border border-gray-200 rounded-lg shadow-lg w-44 max-h-80 overflow-y-auto">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        setCurrentLang(lang.label);
+                        setShowLangDropdown(false);
+                      }}
+                      className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      {lang.label}
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </header>
 
